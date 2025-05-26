@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Data Collection Form - NeuroGuard</title>
+  <link rel="stylesheet" href="../static/css/index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <script src="https://kit.fontawesome.com/e70870546e.js" crossorigin="anonymous"></script>
+  <script src="sweetalert2.min.js"></script>
+</head>
+<body>
+  {% if prediction %}
+  <script> 
+    Swal.fire({
+  title: "<strong>Prediction result</strong>",
+  icon: "success",
+  html: `
+  {{prediction}}
+  `,
+  showCloseButton: true,
+  showCancelButton: true,
+  focusConfirm: false,
+  confirmButtonText: `
+    <i class="fa fa-thumbs-up"></i> Great!
+  `,
+  confirmButtonAriaLabel: "Thumbs up, great!",
+  cancelButtonText: `
+    <i class="fa fa-thumbs-down"></i>
+  `,
+  cancelButtonAriaLabel: "Thumbs down"
+});
+  </script>
+  {% endif %}
+  <header>
+    <div class="container">
+      <h1 class="logo">🧠 NeuroGuard</h1>
+      <nav>
+        <ul>
+          <li><a href="http://127.0.0.1:5000/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/predict">Predict</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="form-container">
+    <h2 style="text-align: center;">Health Data Collection Form</h2>
+    <form id="priction-form" method="POST" action="/predict" >
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="1" max="120" required>
+      </div>
+
+      <div class="form-group">
+        <label for="hypertension">Hypertension</label>
+        <select id="hypertension" name="hypertension" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="heart_disease">Heart Disease</label>
+        <select id="heart_disease" name="heart_disease" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="avg_glucose_level">Average Glucose Level (mg/dL)</label>
+        <input type="number" id="avg_glucose_level" name="avg_glucose_level" step="0.1" required>
+      </div>
+
+      <div class="form-group">
+        <label for="bmi">Average BMI</label>
+        <input type="number" id="bmi" name="bmi" step="0.1" required>
+      </div>
+
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="smoking_status" required>
+          <option value="formerly smoked">Formerly smoked</option>
+          <option value="never smoked">Never smoked</option>
+          <option value="smokes">Smokes</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="residence_type">Residence Type</label>
+        <select id="residence_type" name="residence_type" required>
+          <option value="Urban">Urban</option>
+          <option value="Rural">Rural</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 NeuroGuard. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
