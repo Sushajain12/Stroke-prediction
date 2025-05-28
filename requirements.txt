@@ -3,3 +3,4 @@ pandas
 pickle-mixin
 seaborn
 scikit-learn
+flask
