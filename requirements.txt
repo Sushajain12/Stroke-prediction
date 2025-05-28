@@ -77,7 +77,7 @@ dask-expr==1.1.21
 dataproc-spark-connect==0.7.2
 datascience==0.17.6
 db-dtypes==1.4.2
-dbus-python==1.2.18
+
 debugpy==1.8.0
 decorator==4.4.2
 defusedxml==0.7.1
